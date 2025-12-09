@@ -192,12 +192,33 @@ Skladda mavjud mahsulotlarni yoki mavjud bo‘lmagan mahsulotlarni qaytarish.
 
 Test uchun quyidagi ma’lumotlarni bazaga qo‘lda joylashtiring:
 
-```
-1, "iPhone 13", "phone", 799, true
-2, "Samsung S22", "phone", 699, true
-3, "MacBook Air", "laptop", 999, false
-4, "Xiaomi Redmi Note", "phone", 299, true
-5, "Dell XPS 13", "laptop", 1299, true
+```sql
+INSERT INTO products (name, category, price, in_stock) VALUES
+('iPhone 15', 'Electronics', 999.99, TRUE),
+('Samsung Galaxy S23', 'Electronics', 899.99, TRUE),
+('MacBook Air M2', 'Electronics', 1299.99, TRUE),
+('Lenovo ThinkPad X1', 'Electronics', 1499.50, FALSE),
+('Sony WH-1000XM5', 'Electronics', 399.99, TRUE),
+
+('Nike Air Max', 'Fashion', 129.99, TRUE),
+('Adidas Ultraboost', 'Fashion', 159.99, FALSE),
+('Puma Hoodie', 'Fashion', 49.99, TRUE),
+
+('Wooden Desk', 'Furniture', 220.00, TRUE),
+('Ergonomic Chair', 'Furniture', 180.50, FALSE),
+('Bookshelf', 'Furniture', 95.00, TRUE),
+
+('Football Ball', 'Sports', 25.99, TRUE),
+('Tennis Racket', 'Sports', 89.99, TRUE),
+('Gym Gloves', 'Sports', 15.00, TRUE),
+
+('Organic Honey', 'Food', 12.50, TRUE),
+('Italian Pasta', 'Food', 4.99, TRUE),
+('Almond Milk', 'Food', 3.49, FALSE),
+
+('Car Oil 5W-30', 'Automotive', 29.99, TRUE),
+('Car Air Filter', 'Automotive', 15.49, TRUE),
+('Car Shampoo', 'Automotive', 7.99, FALSE);
 ```
 
 ---
