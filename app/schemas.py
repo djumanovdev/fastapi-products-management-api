@@ -1,11 +1,11 @@
-from typing import List
+from typing import List, Annotated
 
 from pydantic import BaseModel, Field
 
 
 class ProductResponse(BaseModel):
     product_id: int
-    name: str = Field(max_length=100)
+    name: Annotated[str, Field(max_length=100)]
     price: float
     in_stock: bool
 
@@ -15,25 +15,26 @@ class ProductResponse(BaseModel):
 
 class ProductCreate(BaseModel):
     category_id: int
-    name: str = Field(max_length=100)
+    name: Annotated[str, Field(max_length=100)]
     price: float
+    in_stock: Annotated[bool, Field(True)]
 
 
 class CategoryReponse(BaseModel):
     category_id: int
-    name: str = Field(max_length=100)
+    name: Annotated[str, Field(max_length=100)]
     description: str | None = None
-    products: List[ProductResponse] = []
+    products: Annotated[List[ProductResponse], []]
 
     class Config:
         from_attributes = True
 
 
 class CategoryCreate(BaseModel):
-    name: str = Field(max_length=100)
-    description: str | None = None
+    name: Annotated[str, Field(min_length=2, max_length=100)]
+    description: Annotated[str, Field(None, max_length=500)]
 
 
 class CategoryUpdate(BaseModel):
-    name: str | None = Field(max_length=100)
-    description: str | None = None
+    name: Annotated[str, Field(None, min_length=2, max_length=100)]
+    description: Annotated[str, Field(None, max_length=500)]

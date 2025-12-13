@@ -26,6 +26,7 @@ def create_product(
         name=product_data.name,
         price=product_data.price,
         category_id=product_data.category_id,
+        in_stock=product_data.in_stock
     )
     session.add(product)
     session.commit()
