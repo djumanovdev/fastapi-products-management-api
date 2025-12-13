@@ -56,7 +56,7 @@ def create_category(
     return new_category
 
 
-@router.put('/{category_id}', response_model=CategoryReponse, status_code=status.HTTP_204_NO_CONTENT)
+@router.put('/{category_id}', response_model=CategoryReponse, status_code=status.HTTP_200_OK)
 def update_category(
     category_id: Annotated[int, Path(ge=1)],
     data: Annotated[CategoryUpdate, Body],
